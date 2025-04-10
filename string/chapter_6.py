@@ -1,10 +1,16 @@
 '''
 가장 긴 팰린드롬 부분 문자열
 '''
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from typing import Dict, List, Tuple
 from collections import defaultdict 
 
+from utils.performance import timer
+
+@timer
 def book_solution(input:str):
     # 중앙부터 퍼저 나가는??
 
@@ -29,7 +35,7 @@ def book_solution(input:str):
 
     return result
 
-
+@timer
 def my_solution(input:str):
 
     ch_list = list(input)

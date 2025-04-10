@@ -1,10 +1,16 @@
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from typing import List, Tuple
+from utils.performance import timer
+
+
 '''
 로그 파일 재정렬
 '''
 
-from typing import List, Tuple
-
-
+@timer
 def book_solution(input:List[str]):
 
     letter_logs:List[str] = []
@@ -22,6 +28,7 @@ def book_solution(input:List[str]):
 
     return letter_logs + digit_logs
 
+@timer
 def my_solution(input:List[str]):
 
     letter_logs:List[Tuple[str, str]] = []

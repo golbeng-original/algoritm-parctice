@@ -1,11 +1,17 @@
 '''
 가장 흔한 단어
 '''
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import re
 from typing import List
 from collections import defaultdict, Counter
 
+from utils.performance import timer
 
+@timer
 def book_solution_1(paragraph:str, banned:List[str]):
 
     paragraph = paragraph.lower()
@@ -20,6 +26,7 @@ def book_solution_1(paragraph:str, banned:List[str]):
 
     return max(word_mapping, key=word_mapping.get)
 
+@timer
 def book_solution_2(paragraph:str, banned:List[str]):
 
     paragraph = paragraph.lower()
@@ -32,6 +39,7 @@ def book_solution_2(paragraph:str, banned:List[str]):
 
     return counter.most_common(1)[0][0]
 
+@timer
 def my_solution(paragraph:str, banned:List[str]):
 
     paragraph = paragraph.lower()
@@ -59,6 +67,6 @@ if __name__ == '__main__':
 
 
     #result = my_solution(paragraph, banned)
-    #result = book_solution_1(paragraph, banned)
-    result = book_solution_2(paragraph, banned)
+    result = book_solution_1(paragraph, banned)
+    #result = book_solution_2(paragraph, banned)
     print(result)
