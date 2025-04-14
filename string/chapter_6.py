@@ -12,17 +12,16 @@ from utils.performance import timer
 
 @timer
 def book_solution(input:str):
-    # 중앙부터 퍼저 나가는??
+    if len(input) < 2 or input == input[::-1]:
+        return input
 
+    # 중앙부터 퍼저 나가는??
     def expand(left:int, right:int):
         while left >= 0 and right < len(input) and input[left] == input[right]:
             left -= 1
             right += 1
         
         return input[left + 1:right]
-    
-    if len(input) < 2 or input == input[::-1]:
-        return input
 
     result = ''
     for i in range(len(input) - 1):
