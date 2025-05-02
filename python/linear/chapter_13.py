@@ -16,7 +16,10 @@ def book_solution_1(input:str):
     head = ListNode.createByRaw(input)
 
     rev = None
-    slow, fast = head, head
+    slow, fast = head, head 
+    
+    ## slow는 실제 오른쪽 방향 중간 지점
+    ## rev 왼쪽 방향 중간 지점
 
     while fast and fast.next:
         fast = fast.next.next

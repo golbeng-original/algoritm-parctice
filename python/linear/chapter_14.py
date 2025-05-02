@@ -5,11 +5,29 @@
 import sys
 import os
 from typing import List
-import collections
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from utils import timer, ListNode 
+
+@timer
+def book_solution(input:List[str]):
+    
+    left_node = ListNode.createByRaw(input[0])
+    right_node = ListNode.createByRaw(input[1])
+
+    def merge_two_lists(l1:ListNode, l2:ListNode):
+        if (not l1) or (l2 and l1.value > l2.value):
+            l1, l2 = l2, l1
+        
+        if l1:
+            l1.next = merge_two_lists(l1.next, l2)
+
+        return l1
+    
+    result = merge_two_lists(left_node, right_node)
+
+    return str(result)
 
 @timer
 def my_solution(input:List[str]):
@@ -47,14 +65,7 @@ def my_solution(input:List[str]):
 
     head = head.next
 
-    result = ''
-    while head:
-        result += head.value
-        head = head.next
-        if head:
-            result += '->'
-
-    return result
+    return str(head)
 
 if __name__ == '__main__':
     questions = [
@@ -67,5 +78,5 @@ if __name__ == '__main__':
     ]
 
     for question in questions:
-        print(f'{question} => {my_solution(question)}')
-        #print(f'{question} => {book_solution_1(question)}')
+        #print(f'{question} => {my_solution(question)}')
+        print(f'{question} => {book_solution(question)}')
