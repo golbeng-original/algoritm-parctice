@@ -40,11 +40,11 @@ def book_solution_1(input:List[int]):
         # 
         if left_max <= right_max:
             # 현재 높이와 이전까지 가장 높았던 왼쪽 벽 높이 차이를 구한다,
-            volume += input[left] - left_max
+            volume += left_max - input[left]
             left += 1
         else:
-            volume += input[right] - right_max
-            right_max -= 1
+            volume += right_max - input[right]
+            right -= 1
     
     return volume
 
