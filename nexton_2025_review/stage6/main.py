@@ -1,11 +1,9 @@
 
 
 from dataclasses import dataclass
-import sys
 from typing import Dict, List, Set
 
 from collections import defaultdict
-import heapq
 
 @dataclass
 class DistInfo:
