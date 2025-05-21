@@ -3,6 +3,7 @@
 def solution(N):
 
     binary = bin(N)[2:]
+    print(binary)
 
     left = 0
     right = 0
